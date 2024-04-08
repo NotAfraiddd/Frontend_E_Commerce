@@ -58,14 +58,14 @@ import product_33 from './user/product_33.png';
 import product_34 from './user/product_34.png';
 import product_35 from './user/product_35.png';
 import product_36 from './user/product_36.png';
-import arrow_icon from './user/arrow_icon.svg';
-import cross_icon from './user/cross_icon.png';
-import nav_logo from './user/nav-logo.svg';
-import nav_profile from './user/nav-profile.svg';
-import Product_Cart from './user/Product_Cart.svg';
-import Product_list_icon from './user/Product_list_icon.svg';
-import upload_area from './user/upload_area.svg';
-import upload_cloud_icon from './user/upload_cloud_icon.svg';
+import arrow_icon from './admin/arrow_icon.svg';
+import cross_icon from './admin/cross_icon.png';
+import nav_logo from './admin/nav_logo.svg';
+import nav_profile from './admin/nav_profile.svg';
+import Product_Cart from './admin/Product_Cart.svg';
+import Product_list_icon from './admin/Product_list_icon.svg';
+import upload_area from './admin/upload_area.svg';
+import upload_cloud_icon from './admin/upload_cloud_icon.svg';
 
 export {
   arrow_icon,
