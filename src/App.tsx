@@ -1,9 +1,15 @@
 import Navbar from '@components/navbar/Navbar';
-
+import Shop from '@pages/shop/Shop';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
-    <div className="App font-bold text-xl text-red-200">
-      <Navbar />
+    <div className="App">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Shop />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
