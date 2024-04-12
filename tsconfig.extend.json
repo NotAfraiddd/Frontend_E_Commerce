@@ -4,6 +4,7 @@
     "paths": {
       "@components/*": ["./assets/components/*"],
       "@pages/*": ["./assets/pages/*"],
+      "@context/*": ["./assets/context/*"],
       "@data/*": ["./assets/data/*"],
       "@images/*": ["images/*"]
     }
