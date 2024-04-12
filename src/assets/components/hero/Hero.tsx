@@ -1,7 +1,7 @@
 import { arrow, hand_icon, hero_image } from '@images/index'
 import './Hero.css'
 
-export default function Hero() {
+export const Hero = () => {
   return (
     <div className='hero h-screen flex'>
       <div className='hero-left flex flex-1 flex-col justify-center gap-5 pl-44 leading-[1.1]'>
