@@ -3,7 +3,7 @@ import './NewLetter.css'
 
 export const NewLetter = () => {
   return (
-    <div className='new-letter flex flex-col items-center justify-center gap-7 m-auto px-[140px] my-36 w-[65%] h-[40vh]'>
+    <div className='new-letter flex flex-col items-center justify-center gap-7 m-auto px-[140px] my-36 w-full pt-10'>
       <h1 className='text-6xl text-[#454545] font-semibold'>Get Exclusive Offers On Your Email</h1>
       <p className='text-xl text-[#454545] font-semibold'>Subscribe to our newletter and stay updated</p>
       <div className='flex justify-between items-center w-[730px] h-[70px] rounded-[80px] border-[#e3e3e3]'>

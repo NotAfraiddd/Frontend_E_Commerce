@@ -3,7 +3,7 @@ import './Offer.css'
 import { exclusive_image } from '@images/index'
 export const Offer = () => {
   return (
-    <div className='offers w-[65%] h-[60vh] flex m-auto px-36 mb-36'>
+    <div className='offers w-full flex m-auto px-36 mb-36 mt-10'>
       <div className='offer-left flex flex-1 flex-col justify-center'>
         <h1 className='text-chinese-black text-[80px] font-semibold'>Exclusive</h1>
         <h1 className='text-chinese-black text-[80px] font-semibold'>Offers For You</h1>

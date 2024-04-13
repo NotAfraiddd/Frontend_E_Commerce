@@ -58,18 +58,17 @@ export default function Navbar() {
         </li>
       </ul>
       <div className='nav-login-cart flex items-center gap-11'>
-        <Link style={{ textDecoration: 'none' }} to='/login'>
-          <button className='w-40 h-14 active:bg-[#f3f3f3] outline-none border-[#7a7a7a] border cursor-pointer rounded-full'>
-            Login
-          </button>
-        </Link>
-
         <div className='relative'>
-          <img src={cart_icon} alt='cart_icon' />
+          <img src={cart_icon} alt='cart_icon' className='object-contain' />
           <div className='nav-cart-count bg-red-500 flex justify-center items-center text-white rounded-full w-6 h-6 absolute right-[-10px] top-[-8px]'>
             0
           </div>
         </div>
+        <Link style={{ textDecoration: 'none' }} to='/login'>
+          <button className='xl:w-40 lg:w-28 md:w-20 h-14 active:bg-[#f3f3f3] outline-none border-[#7a7a7a] border cursor-pointer rounded-full'>
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   )

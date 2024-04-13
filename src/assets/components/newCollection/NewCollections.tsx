@@ -8,7 +8,7 @@ export const NewCollections = () => {
     <div className='new-collection flex flex-col items-center gap-4 mt-[100px]'>
       <h1 className='text-5xl text-chinese-black font-semibold'>NEW COLLECTIONS</h1>
       <hr className='w-[200px] h-1 rounded-lg bg-[#252525]' />
-      <div className='collections mt-12 grid grid-cols-4 gap-7'>
+      <div className='collections mt-12 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 px-3'>
         {new_collections.map((item, i) => {
           return (
             <Item
