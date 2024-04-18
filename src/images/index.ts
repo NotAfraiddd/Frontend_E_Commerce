@@ -10,7 +10,7 @@ import breadcrum_arrow from './user/breadcrum_arrow.png';
 import cart_cross_icon from './user/cart_cross_icon.png';
 import cart_icon from './user/cart_icon.png';
 import cart_product_icon from './user/cart_product_icon.png';
-import dropdown_icon from './user/dropdown_icon.png';
+import dropdown_icon from './user/dropdown_icon.svg';
 import exclusive_image from './user/exclusive_image.png';
 import hand_icon from './user/hand_icon.png';
 import hero_image from './user/hero_image.png';

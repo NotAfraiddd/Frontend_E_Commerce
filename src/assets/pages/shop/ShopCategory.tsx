@@ -14,11 +14,12 @@ export default function ShopCategory({ category, banner }: InterfaceShopCategory
         <div>
           <span className='font-semibold'>Show 1-12</span> out of 36 products
         </div>
-        <div className='shop-category__sort flex justify-between rounded-[40px] px-5 py-2 border border-[#888]'>
-          Sort by <img src={dropdown_icon} alt='' className='object-contain' />
+        <div className='shop-category__sort flex justify-between items-center rounded-[40px] px-5 gap-2 py-2 border border-[#888]'>
+          <span>Sort by </span>
+          <img src={dropdown_icon} alt='' className='h-5 w-5' />
         </div>
       </div>
-      <div className='shop-category__products mx-5 my-44 grid xl:grid-cols-4 lg:grid-cols-3'>
+      <div className='shop-category__products my-10 mx-32 justify-items-center grid xl:grid-cols-3 lg:grid-cols-2'>
         {all_product.map((item: InterfaceItem) => {
           if (category === item.category) {
             return (
@@ -32,7 +33,11 @@ export default function ShopCategory({ category, banner }: InterfaceShopCategory
               />
             )
           }
+          return null
         })}
+      </div>
+      <div className='shop-category___load-more flex justify-center items-center my-[150px] mx-auto w-60 text-lg font-medium h-16 text-[#787878] rounded-[75px] bg-[#ededed]'>
+        Explore More
       </div>
     </div>
   )
