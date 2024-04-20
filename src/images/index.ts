@@ -6,7 +6,7 @@ import whatsapp_icon from './user/whatsapp_icon.png';
 import star_dull_icon from './user/star_dull_icon.png';
 import banner_mens from './user/banner_mens.png';
 import banner_women from './user/banner_women.png';
-import breadcrum_arrow from './user/breadcrum_arrow.png';
+import breadcrum_arrow from './user/breadcrum_arrow.svg';
 import cart_cross_icon from './user/cart_cross_icon.png';
 import cart_icon from './user/cart_icon.png';
 import cart_product_icon from './user/cart_product_icon.png';

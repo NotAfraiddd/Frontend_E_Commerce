@@ -7,3 +7,7 @@ export interface InterfaceItem {
   old_price?: number
   banner?: string
 }
+
+export interface InterfaceProduct {
+  product: InterfaceItem
+}

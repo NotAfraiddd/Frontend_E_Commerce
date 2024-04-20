@@ -1,10 +1,13 @@
 import React from 'react'
 import { InterfaceItem } from './InterfaceShopCategory'
 import './Item.css'
-export default function Item({ image, name, new_price, old_price }: InterfaceItem) {
+import { Link } from 'react-router-dom'
+export default function Item({ image, name, new_price, old_price, id }: InterfaceItem) {
   return (
     <div className='item w-[350px]'>
-      <img src={image} alt='prodct_image' />
+      <Link to={`/product/${id}`}>
+        <img src={image} alt='prodct_image' />
+      </Link>
       <p>{name}</p>
       <div className='item-prices flex gap-5'>
         <span className='item-price-new text-[#374141] text-lg font-semibold'>{new_price}</span>
