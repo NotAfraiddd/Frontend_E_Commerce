@@ -6,7 +6,7 @@ export default function Item({ image, name, new_price, old_price, id }: Interfac
   return (
     <div className='item w-[350px]'>
       <Link to={`/product/${id}`}>
-        <img src={image} alt='prodct_image' />
+        <img src={image} alt='prodct_image' onClick={() => window.scrollTo(0, 0)} />
       </Link>
       <p>{name}</p>
       <div className='item-prices flex gap-5'>
