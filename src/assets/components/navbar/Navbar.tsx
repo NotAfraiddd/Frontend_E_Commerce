@@ -59,7 +59,9 @@ export default function Navbar() {
       </ul>
       <div className='nav-login-cart flex items-center gap-11'>
         <div className='relative'>
-          <img src={cart_icon} alt='cart_icon' className='object-contain' />
+          <Link style={{ textDecoration: 'none' }} to='/cart'>
+            <img src={cart_icon} alt='cart_icon' className='object-contain' />{' '}
+          </Link>
           <div className='nav-cart-count bg-red-500 flex justify-center items-center text-white rounded-full w-6 h-6 absolute right-[-10px] top-[-8px]'>
             0
           </div>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ProductDisplay.css'
 import { InterfaceProduct } from '@components/Item/InterfaceShopCategory'
 import { star_dull_icon, star_icon } from '@images/index'
+import { ShopContext } from '@context/ShopContext'
 export default function ProductDisplay({ product }: InterfaceProduct) {
+  const { addToCart, removeToCart } = useContext(ShopContext)
+
   return (
     <div className='flex mx-32'>
       <div className='product-display__left flex gap-3 w-2/5'>
@@ -53,7 +56,14 @@ export default function ProductDisplay({ product }: InterfaceProduct) {
               XXL
             </div>
           </div>
-          <button className='py-3 px-5 cursor-pointer rounded mb-3 mt-2 hover:bg-[#e3e3e3] hover:text-black bg-red-500 text-white border'>
+          <button
+            onClick={() => {
+              if (addToCart && typeof product.id === 'number') {
+                addToCart(product.id)
+              }
+            }}
+            className='py-3 px-5 cursor-pointer rounded mb-3 mt-2 hover:bg-[#e3e3e3] hover:text-black bg-red-500 text-white border'
+          >
             ADD TO CART
           </button>
           <p className='product-display__category'>
