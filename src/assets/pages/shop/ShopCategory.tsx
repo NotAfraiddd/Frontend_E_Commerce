@@ -19,7 +19,7 @@ export default function ShopCategory({ category, banner }: InterfaceShopCategory
           <img src={dropdown_icon} alt='' className='h-5 w-5' />
         </div>
       </div>
-      <div className='shop-category__products my-10 mx-32 justify-items-center grid xl:grid-cols-3 lg:grid-cols-2'>
+      <div className='shop-category__products my-10 mx-32 gap-5 justify-items-center grid xl:grid-cols-3 lg:grid-cols-2'>
         {all_product.map((item: InterfaceItem) => {
           if (category === item.category) {
             return (
