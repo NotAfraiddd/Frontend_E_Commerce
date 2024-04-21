@@ -4,7 +4,10 @@ import { ShopContext } from '@context/ShopContext'
 import { cross_icon } from '@images/index'
 import { InterfaceItem } from '@components/Item/InterfaceShopCategory'
 export default function CartItems() {
-  const { addToCart, all_product, removeToCart, cartItems } = useContext(ShopContext)
+  const { all_product, removeToCart, cartItems, getTotalCartAmount } = useContext(ShopContext)
+  const totalAmount = getTotalCartAmount?.()
+  let hasItem = false
+
   return (
     <div className='cart-items my-20 mx-40'>
       <div className='cart-items__main grid grid-cols-custom-6 text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center '>
@@ -20,9 +23,10 @@ export default function CartItems() {
       {all_product.map((ele: InterfaceItem) => {
         if (ele.id && cartItems[ele.id] > 0) {
           const numberCarts = ele.new_price && ele.new_price * cartItems[ele.id]
+          hasItem = true
           return (
             <div
-              className='cart-items__format  grid grid-cols-custom-6 text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center'
+              className='cart-items__format grid grid-cols-custom-6 text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center'
               key={ele.id}
             >
               <img src={ele.image} alt='' className='' />
@@ -45,14 +49,20 @@ export default function CartItems() {
             </div>
           )
         }
+        return null
       })}
+      {!hasItem && (
+        <div className='cart-items__format text-lg text-center w-full py-5 text-#[454545] items-center'>
+          Your cart is empty
+        </div>
+      )}
       <div className='cart-items__down flex my-24'>
         <div className='cart-items__total w-1/2 flex flex-1 flex-col pr-20'>
           <h1 className='text-2xl font-semibold'>Cart Totals</h1>
           <div className='flex flex-col gap-4 my-5'>
             <div className='cart-items__total-item pb-3 flex justify-between border-b'>
               <p>Subtotal</p>
-              <p>${0}</p>
+              <p>${totalAmount}</p>
             </div>
             <div className='cart-items__total-item pb-3 flex justify-between border-b'>
               <p>Subtotal</p>
@@ -60,7 +70,7 @@ export default function CartItems() {
             </div>
             <div className='cart-items__total-item pb-3 flex justify-between border-b'>
               <h3 className='font-semibold'>Total</h3>
-              <h3 className='font-semibold'>${0}</h3>
+              <h3 className='font-semibold'>${totalAmount}</h3>
             </div>
           </div>
           <button className='w-64 h-16 bg-[#ff5a5a] text-white text-base mt-3'>PROCEED TO CHECKOUT</button>

@@ -9,7 +9,7 @@ export default function ShopCategory({ category, banner }: InterfaceShopCategory
   const { all_product } = useContext(ShopContext)
   return (
     <div className='shop-category'>
-      <img src={banner} alt='' className='block mx-auto my-7 w-4/5' />
+      <img src={banner} alt='' className='block px-10 md:px-16 lg:px-24 xl:px-32 my-7 w-4/5' />
       <div className='shop-category__index-sort flex mx-44 justify-between items-center'>
         <div>
           <span className='font-semibold'>Show 1-12</span> out of 36 products

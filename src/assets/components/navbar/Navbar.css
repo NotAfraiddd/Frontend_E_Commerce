@@ -18,3 +18,15 @@
   border-radius: 10px;
   background-color: #ff4141;
 }
+
+.nav-dropdown{
+  display: none;
+}
+
+@media (max-width: 800px){
+  .nav-dropdown{
+    display: block;
+    rotate: -90deg;
+    transition: 0.5s;
+  }
+}

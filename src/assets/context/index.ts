@@ -1,4 +1,3 @@
-import { InterfaceItem } from '@components/Item/InterfaceShopCategory'
 import { ReactNode } from 'react'
 
 export interface InterfaceShopContext {
@@ -7,4 +6,6 @@ export interface InterfaceShopContext {
   children?: ReactNode
   addToCart?: (itemId: number) => void
   removeToCart?: (itemId: number) => void
+  getTotalCartAmount?: () => number
+  getTotalItemsInCart?: () => number
 }

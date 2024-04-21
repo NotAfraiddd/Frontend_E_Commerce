@@ -4,7 +4,7 @@ import { InterfaceProduct } from '@components/Item/InterfaceShopCategory'
 import { star_dull_icon, star_icon } from '@images/index'
 import { ShopContext } from '@context/ShopContext'
 export default function ProductDisplay({ product }: InterfaceProduct) {
-  const { addToCart, removeToCart } = useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext)
 
   return (
     <div className='flex mx-32'>

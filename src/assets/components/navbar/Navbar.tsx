@@ -1,17 +1,28 @@
-import { logo, cart_icon } from '@images/index'
+import { logo, cart_icon, dropdown_icon } from '@images/index'
 import './Navbar.css'
-import { useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ShopContext } from '@context/ShopContext'
 
 export default function Navbar() {
   const [menu, setMenu] = useState('shop')
+  const menuRef = useRef<HTMLUListElement>(null)
+  const { getTotalItemsInCart } = useContext(ShopContext)
+  const dropdown_toggle = (ele: EventTarget) => {
+    menuRef.current?.classList.toggle('nav-menu-visible')
+    if (ele instanceof HTMLElement) {
+      ele.classList.toggle('open')
+    }
+  }
+
   return (
-    <div className='navbar flex justify-between py-4 px-32'>
+    <div className='navbar flex justify-between py-4 px-10 md:px-16 lg:px-24 xl:px-32'>
       <div className='nav-logo flex gap-3 items-center'>
         <img src={logo} alt='Logo' />
-        <p className='text-4xl font-semibold'>SHOPPER</p>
+        <p className='text-xl md:text-2xl lg:text-3xl xl:4xl font-semibold'>SHOPPER</p>
       </div>
-      <ul className='nav-menu flex items-center list-none gap-14 text-xl'>
+      <img src={dropdown_icon} alt='' className='nav-dropdown w-10 h-10 p-1 rounded-full border-black border-2' />
+      <ul ref={menuRef} className='nav-menu flex items-center list-none gap-14 text-xl'>
         <li
           className='nav-item'
           onClick={() => {
@@ -63,7 +74,7 @@ export default function Navbar() {
             <img src={cart_icon} alt='cart_icon' className='object-contain' />{' '}
           </Link>
           <div className='nav-cart-count bg-red-500 flex justify-center items-center text-white rounded-full w-6 h-6 absolute right-[-10px] top-[-8px]'>
-            0
+            {getTotalItemsInCart?.()}
           </div>
         </div>
         <Link style={{ textDecoration: 'none' }} to='/login'>
