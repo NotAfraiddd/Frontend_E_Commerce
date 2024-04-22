@@ -8,11 +8,9 @@ export default function Navbar() {
   const [menu, setMenu] = useState('shop')
   const menuRef = useRef<HTMLUListElement>(null)
   const { getTotalItemsInCart } = useContext(ShopContext)
-  const dropdown_toggle = (ele: EventTarget) => {
-    menuRef.current?.classList.toggle('nav-menu-visible')
-    if (ele instanceof HTMLElement) {
-      ele.classList.toggle('open')
-    }
+  const dropdown_toggle = (ele: any) => {
+    menuRef.current?.classList.toggle('nav-menu-invisible')
+    ele.target.classList.toggle('open')
   }
 
   return (
@@ -21,7 +19,12 @@ export default function Navbar() {
         <img src={logo} alt='Logo' />
         <p className='text-xl md:text-2xl lg:text-3xl xl:4xl font-semibold'>SHOPPER</p>
       </div>
-      <img src={dropdown_icon} alt='' className='nav-dropdown w-10 h-10 p-1 rounded-full border-black border-2' />
+      <img
+        src={dropdown_icon}
+        onClick={dropdown_toggle}
+        alt=''
+        className='nav-dropdown w-10 h-10 p-1 rounded-full border-black border-2'
+      />
       <ul ref={menuRef} className='nav-menu flex items-center list-none gap-14 text-xl'>
         <li
           className='nav-item'
