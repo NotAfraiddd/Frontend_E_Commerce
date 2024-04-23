@@ -9,7 +9,7 @@ export const Footer = () => {
         <img src={logo_big} alt='Logo-big' />
         <p className='text-[#383838] text-[46px] font-bold'>SHOPPER</p>
       </div>
-      <ul className='footer-links flex list-none lg:gap-12 gap-5 justify-center text-[#252525] text-xl flex-wrap'>
+      <ul className='footer-links flex list-none lg:gap-12 gap-5 justify-center text-[#252525] text-xl flex-wrap px-2'>
         <li className='footer-item cursor-pointer'>Company</li>
         <li className='footer-item cursor-pointer'>Products</li>
         <li className='footer-item cursor-pointer'>Offices</li>

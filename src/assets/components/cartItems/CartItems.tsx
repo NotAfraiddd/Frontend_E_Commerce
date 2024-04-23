@@ -10,7 +10,7 @@ export default function CartItems() {
 
   return (
     <div className='cart-items my-20 mx-40'>
-      <div className='cart-items__main grid grid-cols-custom-6 text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center '>
+      <div className='cart-items__main grid grid-cols-custom-6 overflow-x-auto text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center '>
         <p>Product</p>
         <p>Title</p>
         <p>Price</p>
@@ -56,8 +56,8 @@ export default function CartItems() {
           Your cart is empty
         </div>
       )}
-      <div className='cart-items__down flex my-24'>
-        <div className='cart-items__total w-1/2 flex flex-1 flex-col pr-20'>
+      <div className='cart-items__down flex gap-20 my-24'>
+        <div className='cart-items__total w-1/2 flex flex-1 flex-col min-w-80'>
           <h1 className='text-2xl font-semibold'>Cart Totals</h1>
           <div className='flex flex-col gap-4 my-5'>
             <div className='cart-items__total-item pb-3 flex justify-between border-b'>
@@ -77,8 +77,12 @@ export default function CartItems() {
         </div>
         <div className='cart-items__promocode text-[#555] w-1/2 flex flex-1 items-center flex-col text-base font-medium'>
           <p>If you have a promo code, Enter it here</p>
-          <div className='cart-items__promobox flex w-[500px] mt-4 pl-5 h-14 bg-[#eaeaea]'>
-            <input type='text' placeholder='promo code' className='bg-transparent w-4/5 focus-within:outline-none' />
+          <div className='cart-items__promobox flex w-full mt-4 pl-5 h-14 bg-[#eaeaea]'>
+            <input
+              type='text'
+              placeholder='promo code'
+              className='bg-transparent w-4/5 focus-within:outline-none min-w-60'
+            />
             <button className='w-1/5 bg-black text-white'>Submit</button>
           </div>
         </div>
