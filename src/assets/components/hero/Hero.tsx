@@ -5,7 +5,7 @@ export const Hero = () => {
   return (
     <div className='hero flex'>
       <div className='hero-left flex flex-1 flex-col justify-center gap-5 leading-[1.1]'>
-        <h2 className='text-[#090909] text-2xl font-semibold'>NEW ARRIVALS ONLY</h2>
+        <h2 className='text-[#090909] lg:text-4xl md:text-3xl text-2xl font-semibold'>NEW ARRIVALS ONLY</h2>
         <div className=''>
           <div className='hero-hand-icon flex items-center gap-5'>
             <p>new</p>

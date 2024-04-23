@@ -1,3 +1,40 @@
 .new-letter {
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
 }
+
+@media (max-width: 1024px) {
+  .new-letter {
+    padding: 60px;
+  }
+
+  .new-letter h1 {
+    font-size: 40px;
+  }
+  .new-letter__input {
+    width: 600px;
+  }
+
+  .new-letter__input button {
+    width: 120px;
+  }
+
+  .new-letter__input input {
+    width: 75%;
+  }
+}
+
+@media (max-width: 800px) {
+  .new-letter__input {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .new-letter__input input {
+    width: 100%;
+  }
+
+  .new-letter__input button {
+    width: 150px;
+    font-size: 16px;
+  }
+}

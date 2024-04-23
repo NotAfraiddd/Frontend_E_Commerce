@@ -1,3 +1,31 @@
 .offers {
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
 }
+
+@media (max-width: 1024px) {
+  .offers {
+    padding: 0 60px;
+  }
+  .offer-left p {
+    font-size: 30px;
+  }
+  .offer-left h1 {
+    font-size: 50px;
+  }
+  .offer-left button {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .offers {
+    padding: 0 60px;
+  }
+  .offer-left p {
+    font-size: 20px;
+  }
+  .offer-left h1 {
+    font-size: 40px;
+  }
+}

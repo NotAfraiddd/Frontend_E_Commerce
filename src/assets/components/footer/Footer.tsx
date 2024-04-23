@@ -9,7 +9,7 @@ export const Footer = () => {
         <img src={logo_big} alt='Logo-big' />
         <p className='text-[#383838] text-[46px] font-bold'>SHOPPER</p>
       </div>
-      <ul className='footer-links flex list-none gap-12 text-[#252525] text-xl'>
+      <ul className='footer-links flex list-none lg:gap-12 gap-5 justify-center text-[#252525] text-xl flex-wrap'>
         <li className='footer-item cursor-pointer'>Company</li>
         <li className='footer-item cursor-pointer'>Products</li>
         <li className='footer-item cursor-pointer'>Offices</li>
@@ -27,7 +27,7 @@ export const Footer = () => {
           <img src={whatsapp_icon} alt='whatsapp_icon' />
         </div>
       </div>
-      <div className='footer-copyright flex flex-col items-center gap-7 w-full mb-7 text-[#1a1a1a] text-xl'>
+      <div className='footer-copyright flex flex-col items-center gap-7 w-full mb-7 text-[#1a1a1a] text-xl break-words text-center'>
         <hr className='w-4/5 rounded-lg h-1 bg-[#c7c7c7]' />
         <p>Copyright © 2024 - All Right Reserved</p>
       </div>
