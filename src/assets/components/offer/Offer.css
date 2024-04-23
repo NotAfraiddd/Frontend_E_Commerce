@@ -29,3 +29,22 @@
     font-size: 40px;
   }
 }
+
+@media (max-width: 570px) {
+  .offers {
+    padding: 30px;
+    flex-direction: column;
+  }
+  .offer-left p {
+    font-size: 16px;
+  }
+  .offer-left h1 {
+    font-size: 24px;
+  }
+  .offer-right {
+    justify-content: center;
+  }
+  .offer-right img {
+    height: 350px;
+  }
+}

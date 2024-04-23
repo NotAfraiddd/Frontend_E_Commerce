@@ -12,9 +12,11 @@ export const NewLetter = () => {
           name=''
           id=''
           placeholder='Your email'
-          className='w-4/5 text-[#616161] text-base h-[70px] border pl-7 focus-visible:outline-none'
+          className='w-9/12 text-[#616161] text-base h-[70px] border pl-7 focus-visible:outline-none'
         />
-        <button className='w-52 h-[70px] rounded-[80px] bg-black text-white text-base cursor-pointer'>Subscribe</button>
+        <button className='w-1/5 h-[70px] rounded-[80px] bg-black text-white text-base cursor-pointer ml-2'>
+          Subscribe
+        </button>
       </div>
     </div>
   )

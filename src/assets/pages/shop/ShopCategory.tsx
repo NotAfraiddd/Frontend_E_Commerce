@@ -10,7 +10,7 @@ export default function ShopCategory({ category, banner }: InterfaceShopCategory
   return (
     <div className='shop-category'>
       <img src={banner} alt='' className='block px-10 md:px-16 lg:px-24 xl:px-32 my-7 w-full' />
-      <div className='shop-category__index-sort flex xl:mx-44 mx-10 justify-between items-center'>
+      <div className='shop-category__index-sort flex xl:mx-44 mx-10 justify-between items-center flex-wrap gap-1'>
         <div className='break-words'>
           <span className='font-semibold'>Show 1-12</span> out of 36 products
         </div>

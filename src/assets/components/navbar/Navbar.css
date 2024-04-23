@@ -57,8 +57,7 @@
   }
 
   .navbar p {
-    gap: 30px;
-    font-size: 16px;
+    font-size: 24px;
   }
 
   .nav-login-cart {
@@ -104,5 +103,19 @@
 
   .nav-dropdown.open {
     transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 12px 10px;
+  }
+
+  .nav-logo img {
+    width: 40px;
+  }
+
+  .navbar p {
+    font-size: 18px;
   }
 }

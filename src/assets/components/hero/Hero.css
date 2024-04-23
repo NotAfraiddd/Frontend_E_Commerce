@@ -51,11 +51,15 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 570px) {
   .hero {
     padding: 30px;
+    flex-direction: column;
   }
 
+  .hero-left {
+    gap: 4px;
+  }
   .hero-left p {
     font-size: 28px;
     font-weight: 700;
@@ -63,5 +67,9 @@
 
   .hero-left h2 {
     font-size: 18px;
+  }
+
+  .hero-right img {
+    height: 350px;
   }
 }
