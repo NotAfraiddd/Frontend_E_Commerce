@@ -36,10 +36,10 @@
     flex-direction: column;
   }
   .offer-left p {
-    font-size: 16px;
+    font-size: 20px;
   }
   .offer-left h1 {
-    font-size: 24px;
+    font-size: 30px;
   }
   .offer-right {
     justify-content: center;

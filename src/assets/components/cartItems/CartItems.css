@@ -25,3 +25,10 @@
     width: 100%;
   }
 }
+
+.cart-items__name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

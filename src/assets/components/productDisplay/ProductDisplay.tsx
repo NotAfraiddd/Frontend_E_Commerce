@@ -8,18 +8,20 @@ export default function ProductDisplay({ product }: InterfaceProduct) {
 
   return (
     <div className='flex mx-32'>
-      <div className='product-display__left flex gap-3 w-2/5'>
-        <div className='product-display__img-list flex flex-col justify-between'>
-          <img src={product.image} alt='' className='h-[100px]' />
-          <img src={product.image} alt='' className='h-[100px]' />
-          <img src={product.image} alt='' className='h-[100px]' />
-          <img src={product.image} alt='' className='h-[100px]' />
-        </div>
+      <div className='product-display__left flex gap-3 w-1/3 flex-col'>
         <div className='product-display__img'>
           <img className='product-display__img-main h-full object-contain' src={product.image} alt='' />
         </div>
+        <div className='product-display__img-list flex justify-between gap-2 overflow-x-auto'>
+          <img src={product.image} alt='' className='h-[100px]' />
+          <img src={product.image} alt='' className='h-[100px]' />
+          <img src={product.image} alt='' className='h-[100px]' />
+          <img src={product.image} alt='' className='h-[100px]' />
+          <img src={product.image} alt='' className='h-[100px]' />
+          <img src={product.image} alt='' className='h-[100px]' />
+        </div>
       </div>
-      <div className='product-display__right w-3/5 mx-16 flex flex-col'>
+      <div className='product-display__right w-2/3 mx-16 flex flex-col'>
         <h1 className='text-[#3d3d3d] text-4xl font-semibold'>{product.name}</h1>
         <div className='product-display__right-star flex items-center gap-2 text-base text-[#1c1c1c]'>
           <img src={star_icon} alt='' />

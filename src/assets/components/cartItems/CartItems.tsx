@@ -29,8 +29,8 @@ export default function CartItems() {
               className='cart-items__format grid grid-cols-custom-6 text-lg font-semibold gap-[75px] py-5 text-#[454545] items-center'
               key={ele.id}
             >
-              <img src={ele.image} alt='' className='' />
-              <p>{ele.name}</p>
+              <img src={ele.image} alt='' className='min-w-12' />
+              <p className='text-ellipsis cart-items__name'>{ele.name}</p>
               <p>{ele.new_price}</p>
               <button className='cart-items__quantity w-16 h-12 border-[#ebebeb] border-[2px]'>
                 {cartItems[ele.id]}
