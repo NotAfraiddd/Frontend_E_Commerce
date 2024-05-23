@@ -5,6 +5,16 @@
   }
 }
 
+@media (max-width: 800px) {
+  .cart-items {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .cart-items__down {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 680px) {
   .cart-items {
     margin-left: 30px;
@@ -24,11 +34,4 @@
   .cart-items__promobox {
     width: 100%;
   }
-}
-
-.cart-items__name {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 }

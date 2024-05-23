@@ -30,7 +30,7 @@ export default function CartItems() {
               key={ele.id}
             >
               <img src={ele.image} alt='' className='min-w-12' />
-              <p className='text-ellipsis cart-items__name'>{ele.name}</p>
+              <p className=''>{ele.name}</p>
               <p>{ele.new_price}</p>
               <button className='cart-items__quantity w-16 h-12 border-[#ebebeb] border-[2px]'>
                 {cartItems[ele.id]}
