@@ -1,3 +1,9 @@
-.description-box__nav-box.fade{
-    background-color: #fbfbfb;
+.description-box__nav-box.fade {
+  background-color: #fbfbfb;
+}
+
+@media (max-width: 1280px) {
+  .description-box {
+    margin: 60px;
+  }
 }

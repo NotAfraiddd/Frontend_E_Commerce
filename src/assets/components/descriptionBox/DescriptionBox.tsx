@@ -11,7 +11,7 @@ export default function DescriptionBox() {
           Reviews (122)
         </div>
       </div>
-      <div className='description-box__description flex flex-col gap-4 border p-12 mb-20 border-[#d0d0d0]'>
+      <div className='description-box__description text-sm lg:text-base flex flex-col gap-4 border p-6 md:p-12 mb-20 border-[#d0d0d0]'>
         <p>
           An e-commerce website is an online platform that facilitates the buying and selling of products or services
           over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their

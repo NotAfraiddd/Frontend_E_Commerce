@@ -5,9 +5,9 @@ import { logo_big, instagram_icon, pintester_icon, whatsapp_icon } from '@images
 export const Footer = () => {
   return (
     <div className='footer flex flex-col justify-center items-center gap-12'>
-      <div className='footer-logo flex items-center gap-5'>
+      <div className='footer-logo flex items-center gap-5 mt-5'>
         <img src={logo_big} alt='Logo-big' />
-        <p className='text-[#383838] text-[46px] font-bold'>SHOPPER</p>
+        <div className='text-[#383838] text-3xl font-bold'>SHOPPER</div>
       </div>
       <ul className='footer-links flex list-none lg:gap-12 gap-5 justify-center text-[#252525] text-xl flex-wrap px-2'>
         <li className='footer-item cursor-pointer'>Company</li>
@@ -29,7 +29,7 @@ export const Footer = () => {
       </div>
       <div className='footer-copyright flex flex-col items-center gap-7 w-full mb-7 text-[#1a1a1a] text-xl break-words text-center'>
         <hr className='w-4/5 rounded-lg h-1 bg-[#c7c7c7]' />
-        <p>Copyright © 2024 - All Right Reserved</p>
+        <p className='text-base lg:text-xl'>Copyright © 2024 - All Right Reserved</p>
       </div>
     </div>
   )
