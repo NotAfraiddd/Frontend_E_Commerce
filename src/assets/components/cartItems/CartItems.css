@@ -13,6 +13,11 @@
   .cart-items__down {
     flex-direction: column;
   }
+  .cart-items__main {
+    gap: 15px;
+    font-size: 16px;
+    padding: 12px 0;
+  }
 }
 
 @media (max-width: 680px) {
