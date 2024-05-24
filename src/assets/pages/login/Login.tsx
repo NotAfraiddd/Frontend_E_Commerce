@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './Login.css'
 export default function Login() {
   return (
     <div className='login w-full py-28 bg-[#fce3fe]'>
-      <div className='login-container bg-white px-10 py-5 w-[650px] h-[600px] mx-auto'>
+      <div className='login-container bg-white px-10 py-5 w-96 sm:w-[550px] sm:h-[500px] mx-auto'>
         <h1 className='my-5 font-semibold text-2xl text-center text-[#ff4141]'>Sign Up</h1>
         <div className='login-fields flex flex-col gap-7 mt-7'>
           <input
@@ -30,8 +30,8 @@ export default function Login() {
             Already have an accounts? <span className='text-[#ff4141]'>Login here</span>
           </span>
         </div>
-        <div className='login-agree flex items-center mt-5 gap-3 text-[#5c5c5c] text-lg font-medium'>
-          <input type='checkbox' name='' id='' />
+        <div className='login-agree flex items-center mt-5 gap-3 text-[#5c5c5c] text-lg font-medium flex-wrap'>
+          <input type='checkbox' name='' id='' className='mb-2' />
           <span>By continuing, I agree to the terms of use & privacy policy.</span>
         </div>
       </div>
