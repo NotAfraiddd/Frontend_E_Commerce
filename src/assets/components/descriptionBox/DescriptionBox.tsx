@@ -4,10 +4,10 @@ export default function DescriptionBox() {
   return (
     <div className='description-box my-32 mx-40'>
       <div className='description-box__navigator flex'>
-        <div className='description-box__nav-box flex items-center justify-center text-base w-44 h-10 border border-b-0 font-semibold border-[#d0d0d0]'>
+        <div className='description-box__nav-box flex items-center justify-center text-sm md:text-base w-44 h-10 border border-b-0 font-semibold border-[#d0d0d0]'>
           Description
         </div>
-        <div className='description-box__nav-box flex items-center justify-center text-base w-44 h-10 border border-b-0 font-semibold border-[#d0d0d0 fade'>
+        <div className='description-box__nav-box flex items-center justify-center text-sm md:text-base w-44 h-10 border border-b-0 font-semibold border-[#d0d0d0 fade'>
           Reviews (122)
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function Navbar() {
     <div className='navbar flex justify-between py-4 px-10'>
       <div className='nav-logo flex gap-3 items-center'>
         <img src={logo} alt='Logo' />
-        <p className='text-xl md:text-2xl lg:text-3xl xl:4xl font-semibold'>SHOPPER</p>
+        <p className='text-logo text-base sm:text-xl md:text-2xl lg:text-3xl xl:4xl font-semibold'>SHOPPER</p>
       </div>
       <img
         src={dropdown_icon}

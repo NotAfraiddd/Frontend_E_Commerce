@@ -45,7 +45,7 @@ export default function ProductDisplay({ product }: InterfaceProduct) {
         </div>
         <div className='product-display__sizes'>
           <h1 className='text-[#656565] text-sm md:text-base lg:text-xl font-semibold mt-3'>Select Size</h1>
-          <div className='product-display__size flex my-3 gap-3 md:gap-5 '>
+          <div className='product-display__size flex my-3 gap-3 md:gap-5 flex-wrap'>
             <div className='py-1 hover:bg-[#e3e3e3] md:px-6 px-3 text-sm md:text-base rounded bg-[#fbfbfb] border-[#ebebeb] border cursor-pointer'>
               S
             </div>

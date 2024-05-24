@@ -108,15 +108,24 @@
 }
 
 @media (max-width: 400px) {
+  .text-logo {
+    display: none;
+  }
   .navbar {
     padding: 12px 10px;
   }
 
   .nav-logo img {
-    width: 40px;
+    width: 30px;
   }
 
   .navbar p {
     font-size: 18px;
+  }
+
+  .nav-login-cart button {
+    width: 60px;
+    height: 24px;
+    font-size: 14px;
   }
 }

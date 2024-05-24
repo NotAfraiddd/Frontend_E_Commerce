@@ -35,8 +35,21 @@
   .cart-items__promocode {
     width: 100%;
   }
+}
 
-  .cart-items__promobox {
-    width: 100%;
+@media (max-width: 500px) {
+  .cart-items__main {
+    display: none;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    gap: 10px;
   }
+
+  .cart-items__format {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+  }
+}
+
+input[type='text'] {
+  background-color: #eaeaea;
 }
