@@ -8,16 +8,24 @@ import ShopCategory from '@pages/user/shop/ShopCategory'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { banner_mens, banner_kids, banner_women } from './images'
 import { Admin } from '@pages/admin'
+import { NavbarAdmin } from '@components/admin/navbar/NavbarAdmin'
+import { SidebarAdmin } from '@components/admin/sidebar/SidebarAdmin'
 function App() {
   const role = localStorage.getItem('role')
   return (
     <div className='App'>
       <BrowserRouter>
         {role === 'admin' ? (
-          <Routes>
-            <Route path='/' element={<Navigate to='/admin' />} />
-            <Route path='/admin' element={<Admin />} />
-          </Routes>
+          <>
+            <NavbarAdmin />
+            <div className='flex'>
+              <SidebarAdmin />
+              <Routes>
+                <Route path='/' element={<Navigate to='/admin' />} />
+                <Route path='/admin' element={<Admin />} />
+              </Routes>
+            </div>
+          </>
         ) : (
           <>
             <Navbar />

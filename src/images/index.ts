@@ -1,74 +1,78 @@
-import logo from './user/logo.png';
-import arrow from './user/arrow.png';
-import banner_kids from './user/banner_kids.png';
-import star_icon from './user/star_icon.png';
-import whatsapp_icon from './user/whatsapp_icon.png';
-import star_dull_icon from './user/star_dull_icon.png';
-import banner_mens from './user/banner_mens.png';
-import banner_women from './user/banner_women.png';
-import breadcrum_arrow from './user/breadcrum_arrow.svg';
-import cart_cross_icon from './user/cart_cross_icon.png';
-import cart_icon from './user/cart_icon.png';
-import cart_product_icon from './user/cart_product_icon.png';
-import dropdown_icon from './user/dropdown_icon.svg';
-import exclusive_image from './user/exclusive_image.png';
-import hand_icon from './user/hand_icon.png';
-import hero_image from './user/hero_image.png';
-import instagram_icon from './user/instagram_icon.png';
-import logo_big from './user/logo_big.png';
-import pintester_icon from './user/pintester_icon.png';
-import p1_product from './user/p1_product.png';
-import p1_product_i1 from './user/p1_product_i1.png';
-import p1_product_i2 from './user/p1_product_i2.png';
-import p1_product_i3 from './user/p1_product_i3.png';
-import p1_product_i4 from './user/p1_product_i4.png';
-import product_1 from './user/product_1.png';
-import product_2 from './user/product_2.png';
-import product_3 from './user/product_3.png';
-import product_4 from './user/product_4.png';
-import product_5 from './user/product_5.png';
-import product_6 from './user/product_6.png';
-import product_7 from './user/product_7.png';
-import product_8 from './user/product_8.png';
-import product_9 from './user/product_9.png';
-import product_10 from './user/product_10.png';
-import product_11 from './user/product_11.png';
-import product_12 from './user/product_12.png';
-import product_13 from './user/product_13.png';
-import product_14 from './user/product_14.png';
-import product_15 from './user/product_15.png';
-import product_16 from './user/product_16.png';
-import product_17 from './user/product_17.png';
-import product_18 from './user/product_18.png';
-import product_19 from './user/product_19.png';
-import product_20 from './user/product_20.png';
-import product_21 from './user/product_21.png';
-import product_22 from './user/product_22.png';
-import product_23 from './user/product_23.png';
-import product_24 from './user/product_24.png';
-import product_25 from './user/product_25.png';
-import product_26 from './user/product_26.png';
-import product_27 from './user/product_27.png';
-import product_28 from './user/product_28.png';
-import product_29 from './user/product_29.png';
-import product_30 from './user/product_30.png';
-import product_31 from './user/product_31.png';
-import product_32 from './user/product_32.png';
-import product_33 from './user/product_33.png';
-import product_34 from './user/product_34.png';
-import product_35 from './user/product_35.png';
-import product_36 from './user/product_36.png';
-import arrow_icon from './admin/arrow_icon.svg';
-import cross_icon from './admin/cross_icon.png';
-import nav_logo from './admin/nav_logo.svg';
-import nav_profile from './admin/nav_profile.svg';
-import Product_Cart from './admin/Product_Cart.svg';
-import Product_list_icon from './admin/Product_list_icon.svg';
-import upload_area from './admin/upload_area.svg';
-import upload_cloud_icon from './admin/upload_cloud_icon.svg';
+import logo from './user/logo.png'
+import arrow from './user/arrow.png'
+import banner_kids from './user/banner_kids.png'
+import star_icon from './user/star_icon.png'
+import whatsapp_icon from './user/whatsapp_icon.png'
+import star_dull_icon from './user/star_dull_icon.png'
+import banner_mens from './user/banner_mens.png'
+import banner_women from './user/banner_women.png'
+import breadcrum_arrow from './user/breadcrum_arrow.svg'
+import cart_cross_icon from './user/cart_cross_icon.png'
+import cart_icon from './user/cart_icon.png'
+import cart_product_icon from './user/cart_product_icon.png'
+import dropdown_icon from './user/dropdown_icon.svg'
+import exclusive_image from './user/exclusive_image.png'
+import hand_icon from './user/hand_icon.png'
+import hero_image from './user/hero_image.png'
+import instagram_icon from './user/instagram_icon.png'
+import logo_big from './user/logo_big.png'
+import pintester_icon from './user/pintester_icon.png'
+import p1_product from './user/p1_product.png'
+import p1_product_i1 from './user/p1_product_i1.png'
+import p1_product_i2 from './user/p1_product_i2.png'
+import p1_product_i3 from './user/p1_product_i3.png'
+import p1_product_i4 from './user/p1_product_i4.png'
+import product_1 from './user/product_1.png'
+import product_2 from './user/product_2.png'
+import product_3 from './user/product_3.png'
+import product_4 from './user/product_4.png'
+import product_5 from './user/product_5.png'
+import product_6 from './user/product_6.png'
+import product_7 from './user/product_7.png'
+import product_8 from './user/product_8.png'
+import product_9 from './user/product_9.png'
+import product_10 from './user/product_10.png'
+import product_11 from './user/product_11.png'
+import product_12 from './user/product_12.png'
+import product_13 from './user/product_13.png'
+import product_14 from './user/product_14.png'
+import product_15 from './user/product_15.png'
+import product_16 from './user/product_16.png'
+import product_17 from './user/product_17.png'
+import product_18 from './user/product_18.png'
+import product_19 from './user/product_19.png'
+import product_20 from './user/product_20.png'
+import product_21 from './user/product_21.png'
+import product_22 from './user/product_22.png'
+import product_23 from './user/product_23.png'
+import product_24 from './user/product_24.png'
+import product_25 from './user/product_25.png'
+import product_26 from './user/product_26.png'
+import product_27 from './user/product_27.png'
+import product_28 from './user/product_28.png'
+import product_29 from './user/product_29.png'
+import product_30 from './user/product_30.png'
+import product_31 from './user/product_31.png'
+import product_32 from './user/product_32.png'
+import product_33 from './user/product_33.png'
+import product_34 from './user/product_34.png'
+import product_35 from './user/product_35.png'
+import product_36 from './user/product_36.png'
+import arrow_icon from './admin/arrow_icon.svg'
+import arrow_left from './admin/arrow_left.svg'
+import arrow_right from './admin/arrow_right.svg'
+import cross_icon from './admin/cross_icon.png'
+import nav_logo from './admin/nav_logo.svg'
+import nav_profile from './admin/nav_profile.svg'
+import Product_Cart from './admin/Product_Cart.svg'
+import Product_list_icon from './admin/Product_list_icon.svg'
+import upload_area from './admin/upload_area.svg'
+import upload_cloud_icon from './admin/upload_cloud_icon.svg'
 
 export {
   arrow_icon,
+  arrow_left,
+  arrow_right,
   nav_logo,
   nav_profile,
   Product_Cart,
@@ -135,5 +139,5 @@ export {
   product_6,
   product_7,
   product_8,
-  product_9,
-};
+  product_9
+}

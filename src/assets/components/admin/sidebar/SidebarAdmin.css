@@ -1,0 +1,17 @@
+.sidebar {
+  width: 240px;
+  transition: width 0.3s ease-in-out;
+  height: calc(100vh - 80px);
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  transition: width 0.3s ease-in-out;
+}
+
+.item-sidebar__text {
+  -webkit-box-flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
