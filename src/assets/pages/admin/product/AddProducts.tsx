@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import './AddProducts.css'
 import { upload_area } from '@images/index'
 
 export const AddProducts = () => {
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
+
+  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0]
+      const objectUrl = URL.createObjectURL(file)
+      setImagePreview(objectUrl)
+    }
+  }
+
   const listTypeProducts = [
     { id: 1, type: 'Kid' },
     { id: 2, type: 'Men' },
@@ -38,9 +48,9 @@ export const AddProducts = () => {
 
       <div className='w-fit mt-5'>
         <label htmlFor='file-img'>
-          <img src={upload_area} alt='' />
+          <img src={imagePreview ? imagePreview : upload_area} alt='' className='w-40 h-40 object-contain' />
         </label>
-        <input type='file' name='image' id='file-img' hidden accept='image/*' />
+        <input onChange={handleImage} type='file' name='image' id='file-img' hidden accept='image/*' />
       </div>
       <button className='border w-32 h-10 mt-5 rounded-md'>ADD</button>
     </div>
