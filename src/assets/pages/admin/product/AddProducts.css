@@ -1,5 +1,5 @@
 .product-add {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px - 32px);
 }
 
 input[type='text']:focus-within,

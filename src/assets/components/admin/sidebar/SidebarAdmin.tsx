@@ -58,8 +58,8 @@ export const SidebarAdmin = () => {
         className='w-full text-center cursor-pointer flex items-center justify-center gap-4 py-4'
         onClick={handleCollapsed}
       >
-        {!isCollapsed && <p className='font-semibold item-sidebar__text'>Collapse menu</p>}
-        <img src={!isCollapsed ? arrow_left : arrow_right} alt='' className='w-8' />
+        {width > 1024 && !isCollapsed && <p className='font-semibold item-sidebar__text'>Collapse menu</p>}
+        <img src={width > 1024 && !isCollapsed ? arrow_left : arrow_right} alt='' className='w-8' />
       </div>
     </div>
   )
