@@ -15,3 +15,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.active {
+  background-color: #fdefef;
+}

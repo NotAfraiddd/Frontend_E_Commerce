@@ -83,7 +83,7 @@ export default function CartItems() {
             <input
               type='text'
               placeholder='promo code'
-              className='bg-transparent focus-within:outline-none pl-5 w-full'
+              className='promo-code bg-transparent focus-within:outline-none pl-5 w-full'
             />
             <button className=' bg-black text-white px-2'>Submit</button>
           </div>

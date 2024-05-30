@@ -1,0 +1,8 @@
+.product-add {
+  height: calc(100vh - 80px);
+}
+
+input[type='text']:focus-within,
+select:focus-within {
+  outline: none;
+}

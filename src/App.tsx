@@ -7,25 +7,27 @@ import Shop from '@pages/user/shop/Shop'
 import ShopCategory from '@pages/user/shop/ShopCategory'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { banner_mens, banner_kids, banner_women } from './images'
-import { Admin } from '@pages/admin'
 import { NavbarAdmin } from '@components/admin/navbar/NavbarAdmin'
 import { SidebarAdmin } from '@components/admin/sidebar/SidebarAdmin'
+import { ListProducts } from '@pages/admin/listProducts/ListProducts'
+import { AddProducts } from '@pages/admin/product/AddProducts'
 function App() {
   const role = localStorage.getItem('role')
   return (
     <div className='App'>
       <BrowserRouter>
         {role === 'admin' ? (
-          <>
+          <div className='bg-[#f7f5f7]'>
             <NavbarAdmin />
             <div className='flex'>
               <SidebarAdmin />
               <Routes>
-                <Route path='/' element={<Navigate to='/admin' />} />
-                <Route path='/admin' element={<Admin />} />
+                <Route path='/' element={<Navigate to='/admin/list-products' />} />
+                <Route path='/admin/list-products' element={<ListProducts />} />
+                <Route path='/admin/product/add' element={<AddProducts />} />
               </Routes>
             </div>
-          </>
+          </div>
         ) : (
           <>
             <Navbar />
