@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react'
 import './AddProducts.css'
 import { upload_area, reload } from '@images/index'
 import { Product, defaultProduct } from '@interface/Product'
@@ -49,8 +49,6 @@ export const AddProducts = () => {
     }))
   }
 
-  console.log(detailProduct)
-
   const toggleRotate = (e: MouseEvent<HTMLImageElement>) => {
     const newRotation = rotation - 360
     setRotation(newRotation)
@@ -64,62 +62,79 @@ export const AddProducts = () => {
     { id: 2, type: 'Men' },
     { id: 3, type: 'Women' }
   ]
-  return (
-    <div className='product-add w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
-      <div className='mt-5'>
-        <p className='mb-2'>Product title</p>
-        <input
-          type='text'
-          placeholder=''
-          spellCheck={false}
-          onChange={getValueNameProduct}
-          className='pl-5 border w-full h-12 rounded-xl'
-        />
-      </div>
-      <div className='flex w-full gap-5 flex-wrap mt-5'>
-        <div className=''>
-          <p className='mb-2'>Price</p>
-          <input
-            type='text'
-            placeholder=''
-            spellCheck={false}
-            onChange={getValueNewPrice}
-            className='pl-5 border w-full h-12 rounded-xl'
-          />
-        </div>
-        <div className=''>
-          <p className='mb-2'>Offer Price</p>
-          <input
-            type='text'
-            placeholder=''
-            spellCheck={false}
-            onChange={getValueOldPrice}
-            className='pl-5 border w-full h-12 rounded-xl'
-          />
-        </div>
-        <div className=''>
-          <p className='mb-2'>Category type</p>
-          <select name='' id='' className='border rounded-md h-12 px-5' onChange={getValueProductTpe}>
-            <option value=''>Select a product type</option>
-            {listTypeProducts.map((product) => (
-              <option key={product.id} value={product.type}>
-                {product.type}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
 
-      <div className='w-fit mt-5'>
-        <label htmlFor='file-img'>
-          <img src={imagePreview ? imagePreview : upload_area} alt='' className='w-40 h-40 object-contain' />
-        </label>
-        <input onChange={handleImage} type='file' name='image' id='file-img' hidden accept='image/*' />
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formDataWithID = { ...detailProduct, id: new Date().toString() }
+    console.log(formDataWithID)
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className='product-add w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
+        <div className='mt-5'>
+          <p className='mb-2'>Product title</p>
+          <input
+            type='text'
+            placeholder=''
+            spellCheck={false}
+            value={detailProduct.name}
+            onChange={getValueNameProduct}
+            className='pl-5 border w-full h-12 rounded-xl'
+          />
+        </div>
+        <div className='flex w-full gap-5 flex-wrap mt-5'>
+          <div className=''>
+            <p className='mb-2'>Price</p>
+            <input
+              type='text'
+              placeholder=''
+              spellCheck={false}
+              value={detailProduct.new_price}
+              onChange={getValueNewPrice}
+              className='pl-5 border w-full h-12 rounded-xl'
+            />
+          </div>
+          <div className=''>
+            <p className='mb-2'>Offer Price</p>
+            <input
+              type='text'
+              placeholder=''
+              spellCheck={false}
+              value={detailProduct.old_price}
+              onChange={getValueOldPrice}
+              className='pl-5 border w-full h-12 rounded-xl'
+            />
+          </div>
+          <div className=''>
+            <p className='mb-2'>Category type</p>
+            <select
+              name=''
+              id=''
+              value={detailProduct.category}
+              className='border rounded-md h-12 px-5'
+              onChange={getValueProductTpe}
+            >
+              <option value=''>Select a product type</option>
+              {listTypeProducts.map((product) => (
+                <option key={product.id} value={product.id}>
+                  {product.type}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className='w-fit mt-5'>
+          <label htmlFor='file-img'>
+            <img src={imagePreview ? imagePreview : upload_area} alt='' className='w-40 h-40 object-contain' />
+          </label>
+          <input onChange={handleImage} type='file' name='image' id='file-img' hidden accept='image/*' />
+        </div>
+        <div className='flex mt-5 w-40 gap-5 items-center'>
+          <button className='border h-10 w-full rounded-md'>ADD</button>
+          <img src={reload} alt='' className='h-6' onClick={toggleRotate} style={{ transition: 'transform 0.9s' }} />
+        </div>
       </div>
-      <div className='flex mt-5 w-40 gap-5 items-center'>
-        <button className='border h-10 w-full rounded-md'>ADD</button>
-        <img src={reload} alt='' className='h-6' onClick={toggleRotate} style={{ transition: 'transform 0.9s' }} />
-      </div>
-    </div>
+    </form>
   )
 }

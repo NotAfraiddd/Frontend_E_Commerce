@@ -25,6 +25,9 @@ function App() {
                 <Route path='/' element={<Navigate to='/admin/list-products' />} />
                 <Route path='/admin/list-products' element={<ListProducts />} />
                 <Route path='/admin/product/add' element={<AddProducts />} />
+                <Route path='/admin/product' element={<AddProducts />}>
+                  <Route path=':productId' element={<AddProducts />}></Route>
+                </Route>
               </Routes>
             </div>
           </div>

@@ -1,4 +1,7 @@
+import { product_1, product_10, product_14 } from "@images/index";
+
 export interface Product {
+    id?:string,
     name?: string,
     image?: string,
     category?: string,
@@ -7,6 +10,7 @@ export interface Product {
 }
 
 export const defaultProduct: Product = {
+    id:'',
     name: '',
     image: '',
     category: '',
@@ -16,22 +20,25 @@ export const defaultProduct: Product = {
 
 export const intialProductList: Product[] = [
     {
+        id:'1',
         name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-        image: '../../images/user/product_1.png',
+        image: product_1,
         category: 'Men',
         new_price: 85,
         old_price: 120
     },
     {
+        id:'2',
         name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-        image: '../../images/user/product_14.png',
+        image: product_14,
         category: 'Men',
         new_price: 85,
         old_price: 120
     },
     {
+        id:'3',
         name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-        image: '../../images/user/product_12.png',
+        image: product_10,
         category: 'Men',
         new_price: 85,
         old_price: 120
