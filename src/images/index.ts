@@ -68,8 +68,9 @@ import Product_Cart from './admin/Product_Cart.svg'
 import Product_list_icon from './admin/Product_list_icon.svg'
 import upload_area from './admin/upload_area.svg'
 import upload_cloud_icon from './admin/upload_cloud_icon.svg'
-
+import reload from './admin/reload.svg'
 export {
+  reload,
   arrow_icon,
   arrow_left,
   arrow_right,

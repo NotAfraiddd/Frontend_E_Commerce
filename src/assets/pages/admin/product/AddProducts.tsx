@@ -1,9 +1,10 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, MouseEvent, useState } from 'react'
 import './AddProducts.css'
-import { upload_area } from '@images/index'
+import { upload_area, reload } from '@images/index'
 import { Product, defaultProduct } from '@interface/Product'
 export const AddProducts = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [rotation, setRotation] = useState(0)
 
   const [detailProduct, setDetailProducts] = useState<Product>(defaultProduct)
 
@@ -49,6 +50,14 @@ export const AddProducts = () => {
   }
 
   console.log(detailProduct)
+
+  const toggleRotate = (e: MouseEvent<HTMLImageElement>) => {
+    const newRotation = rotation - 360
+    setRotation(newRotation)
+    const imageElement = e.currentTarget
+    imageElement.style.transform = `rotate(${newRotation}deg)`
+    setImagePreview(null)
+  }
 
   const listTypeProducts = [
     { id: 1, type: 'Kid' },
@@ -107,7 +116,10 @@ export const AddProducts = () => {
         </label>
         <input onChange={handleImage} type='file' name='image' id='file-img' hidden accept='image/*' />
       </div>
-      <button className='border w-32 h-10 mt-5 rounded-md'>ADD</button>
+      <div className='flex mt-5 w-40 gap-5 items-center'>
+        <button className='border h-10 w-full rounded-md'>ADD</button>
+        <img src={reload} alt='' className='h-6' onClick={toggleRotate} style={{ transition: 'transform 0.9s' }} />
+      </div>
     </div>
   )
 }
