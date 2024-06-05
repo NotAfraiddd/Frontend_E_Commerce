@@ -34,17 +34,17 @@ export const AddProducts = () => {
     }))
   }
 
-  const getValueOldPrice = (e: ChangeEvent<HTMLInputElement>) => {
-    setDetailProducts((prevState) => ({
-      ...prevState,
-      old_price: parseInt(e.target.value)
-    }))
-  }
-
   const getValueProductTpe = (e: ChangeEvent<HTMLSelectElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
       category: e.target.value
+    }))
+  }
+
+  const getValueOldPrice = (e: ChangeEvent<HTMLInputElement>) => {
+    setDetailProducts((prevState) => ({
+      ...prevState,
+      old_price: parseInt(e.target.value)
     }))
   }
 

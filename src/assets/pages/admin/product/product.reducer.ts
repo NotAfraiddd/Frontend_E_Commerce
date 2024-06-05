@@ -1,4 +1,4 @@
-import { Product } from "@interface/Product";
+import { Product, defaultProduct } from "@interface/Product";
 import { createReducer } from "@reduxjs/toolkit";
 
 interface ProductState {
@@ -6,7 +6,7 @@ interface ProductState {
 }
 
 const initalState: ProductState = {
-    productList: []
+    productList: [defaultProduct]
 }
 
 const productReducer = createReducer(initalState,builder =>{

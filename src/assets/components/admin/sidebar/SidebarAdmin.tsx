@@ -8,16 +8,27 @@ export const SidebarAdmin = () => {
   const { width } = useWindowDimensions()
   const sidebarRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
-  const [isCollapsed, setCollapsed] = useState(false)
+  const [isCollapsed, setCollapsed] = useState(width <= 1024)
+
   useEffect(() => {
     if (sidebarRef.current) {
-      if (width <= 1024 || isCollapsed) {
+      if (width <= 1024) {
+        setCollapsed(true)
+      } else {
+        setCollapsed(false)
+      }
+    }
+  }, [width])
+
+  useEffect(() => {
+    if (sidebarRef.current) {
+      if (isCollapsed) {
         sidebarRef.current.classList.add('collapsed')
       } else {
         sidebarRef.current.classList.remove('collapsed')
       }
     }
-  }, [width, isCollapsed])
+  }, [isCollapsed])
 
   const handleCollapsed = () => {
     setCollapsed((prevState) => !prevState)
@@ -40,7 +51,7 @@ export const SidebarAdmin = () => {
             )}`}
           >
             <img src={Product_list_icon} alt='' />
-            {width > 1024 && !isCollapsed && <p className='item-sidebar__text'>Product List</p>}
+            {!isCollapsed && <p className='item-sidebar__text'>Product List</p>}
           </div>
         </Link>
         <Link to={'/admin/product/add'} style={{ textDecoration: 'none' }}>
@@ -50,7 +61,7 @@ export const SidebarAdmin = () => {
             )}`}
           >
             <img src={Product_Cart} alt='' />
-            {width > 1024 && !isCollapsed && <p className='item-sidebar__text'>Add Product</p>}
+            {!isCollapsed && <p className='item-sidebar__text'>Add Product</p>}
           </div>
         </Link>
       </div>
@@ -58,8 +69,8 @@ export const SidebarAdmin = () => {
         className='w-full text-center cursor-pointer flex items-center justify-center gap-4 py-4'
         onClick={handleCollapsed}
       >
-        {width > 1024 && !isCollapsed && <p className='font-semibold item-sidebar__text'>Collapse menu</p>}
-        <img src={width > 1024 && !isCollapsed ? arrow_left : arrow_right} alt='' className='w-8' />
+        {!isCollapsed && <p className='font-semibold item-sidebar__text'>Collapse menu</p>}
+        <img src={!isCollapsed ? arrow_left : arrow_right} alt='' className='w-8' />
       </div>
     </div>
   )
