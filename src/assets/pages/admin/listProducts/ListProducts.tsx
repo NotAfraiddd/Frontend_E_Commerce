@@ -1,11 +1,13 @@
 import { cross_icon } from '@images/index'
 import { ChangeEvent } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from 'store'
+import { removeProduct } from '../product/product.reducer'
 export const ListProducts = () => {
   const productList = useSelector((state: RootState) => state.product.productList)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const listTypeProducts = [
     { id: 1, type: 'Kid' },
@@ -19,6 +21,10 @@ export const ListProducts = () => {
 
   const clickToDetailProduct = (productId: string) => {
     navigate(`/admin/product/${productId}`)
+  }
+
+  const handleDeleteProduct = (productID: string) => {
+    dispatch(removeProduct(productID))
   }
 
   return (
@@ -52,7 +58,14 @@ export const ListProducts = () => {
           <p>{ele.category}</p>
           <button className=' w-8 h-6 lg:w-16 lg:h-12 border-[#ebebeb] border-[2px]'>{ele.new_price}</button>
           <button className=' w-8 h-6 lg:w-16 lg:h-12 border-[#ebebeb] border-[2px]'>{ele.old_price}</button>
-          <img src={cross_icon} onClick={() => {}} alt='icon_remove' className='cursor-pointer' />
+          <img
+            src={cross_icon}
+            onClick={() => {
+              ele.id && handleDeleteProduct(ele.id)
+            }}
+            alt='icon_remove'
+            className='cursor-pointer'
+          />
         </div>
       ))}
     </div>

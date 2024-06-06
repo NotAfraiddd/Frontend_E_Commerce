@@ -1,12 +1,16 @@
 import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react'
 import './AddProducts.css'
 import { upload_area, reload } from '@images/index'
-import { Product, defaultProduct } from '@interface/Product'
+import { Product, defaultProduct, intialProductList } from '@interface/Product'
+import { useDispatch } from 'react-redux'
+import { addProduct } from './product.reducer'
 export const AddProducts = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
   const [rotation, setRotation] = useState(0)
 
   const [detailProduct, setDetailProducts] = useState<Product>(defaultProduct)
+
+  const dispatch = useDispatch()
 
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -66,11 +70,13 @@ export const AddProducts = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formDataWithID = { ...detailProduct, id: new Date().toString() }
-    console.log(formDataWithID)
+    dispatch(addProduct(formDataWithID))
+    setDetailProducts(defaultProduct)
+    setImagePreview(null)
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='product-add w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
+    <form onSubmit={handleSubmit} className='w-full'>
+      <div className='product-add mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
         <div className='mt-5'>
           <p className='mb-2'>Product title</p>
           <input
