@@ -1,0 +1,15 @@
+@media (max-width: 500px) {
+    .admin-list-products {
+      display: grid;
+      grid-template-columns: 0.5fr 3fr 0.5fr;
+    }
+
+    .admin-list-products__title{
+        display: none;
+    }
+}
+
+.admin-list-products__contain{
+    height: calc( 100vh - 80px - 32px);
+}
+  

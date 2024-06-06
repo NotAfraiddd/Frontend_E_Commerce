@@ -2,6 +2,8 @@
   width: 240px;
   transition: width 0.3s ease-in-out;
   height: calc(100vh - 80px);
+  position: sticky;
+  top: 0;
 }
 
 .sidebar.collapsed {
