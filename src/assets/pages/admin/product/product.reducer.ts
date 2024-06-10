@@ -14,6 +14,7 @@ const initalState: ProductState = {
 export const addProduct = createAction<Product[]>('product/addProduct')
 export const removeProduct = createAction<string>('product/removeProduct')
 export const udpateProduct = createAction<string>('product/udpateProduct')
+export const resetProductList = createAction<void>('product/resetProductList')
 
 const productReducer = createReducer(initalState, (builder) => {
   builder
@@ -28,6 +29,9 @@ const productReducer = createReducer(initalState, (builder) => {
     .addCase(udpateProduct, (state, action) => {
       const productId = action.payload
       state.editProduct = state.productList.find((item) => item.id === productId) || null
+    })
+    .addCase(resetProductList, (state) => {
+      state.productList = intialProductList
     })
 })
 

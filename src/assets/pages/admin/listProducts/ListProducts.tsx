@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from 'store'
-import { addProduct, removeProduct, udpateProduct } from '../product/product.reducer'
+import { addProduct, removeProduct, resetProductList, udpateProduct } from '../product/product.reducer'
 import './ListProduct.css'
 import { Product } from '@interface/Product'
 import axiosInstance from '@config/axios'
@@ -38,6 +38,7 @@ export const ListProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        dispatch(resetProductList())
         const response = await axiosInstance.get<Product[]>('/product/getAllProducts')
         const listProducts = response.data
         dispatch(addProduct(listProducts))
@@ -72,8 +73,8 @@ export const ListProducts = () => {
           className='admin-list-products justify-items-center text-sm lg:text-base xl:text-lg grid grid-cols-custom-6 gap-3 xl:gap-[75px] py-5 text-#[454545] items-center'
           key={index}
         >
-          <img src={ele.image} alt='' className='min-w-12' />
-          <p className='hover:underline cursor-pointer' onClick={() => ele.id && clickToDetailProduct(ele.id)}>
+          <img src={ele.image} alt='' className='h-16 w-16 object-contain' />
+          <p className='hover:underline cursor-pointer w-full' onClick={() => ele.id && clickToDetailProduct(ele.id)}>
             {ele.name}
           </p>
           <p>{getTypeProduct(ele.category || 0)}</p>
