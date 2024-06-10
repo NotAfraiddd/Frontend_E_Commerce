@@ -6,6 +6,7 @@
       "@pages/*": ["./assets/pages/*"],
       "@context/*": ["./assets/context/*"],
       "@data/*": ["./assets/data/*"],
+      "@config/*": ["./assets/config/*"],
       "@interface/*": ["./assets/interface/*"],
       "@images/*": ["images/*"]
     }

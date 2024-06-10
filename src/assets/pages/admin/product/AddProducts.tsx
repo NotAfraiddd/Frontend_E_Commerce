@@ -53,7 +53,7 @@ export const AddProducts = () => {
   const getValueProductTpe = (e: ChangeEvent<HTMLSelectElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
-      category: e.target.value
+      category: parseInt(e.target.value)
     }))
   }
 
@@ -81,7 +81,7 @@ export const AddProducts = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formDataWithID = { ...detailProduct, id: new Date().toString() }
-    dispatch(addProduct(formDataWithID))
+    dispatch(addProduct([formDataWithID]))
     setDetailProducts(defaultProduct)
     setImagePreview(null)
   }
@@ -131,7 +131,7 @@ export const AddProducts = () => {
               className='border rounded-md h-12 px-5'
               onChange={getValueProductTpe}
             >
-              <option value=''>Select a product type</option>
+              <option value={0}>Select a product type</option>
               {listTypeProducts.map((product) => (
                 <option key={product.id} value={product.id}>
                   {product.type}

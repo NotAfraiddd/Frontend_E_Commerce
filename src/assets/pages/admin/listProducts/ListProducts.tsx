@@ -1,15 +1,16 @@
 import { cross_icon } from '@images/index'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from 'store'
-import { removeProduct, udpateProduct } from '../product/product.reducer'
+import { addProduct, removeProduct, udpateProduct } from '../product/product.reducer'
 import './ListProduct.css'
+import { Product } from '@interface/Product'
+import axiosInstance from '@config/axios'
 export const ListProducts = () => {
   const productList = useSelector((state: RootState) => state.product.productList)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const listTypeProducts = [
     { id: 1, type: 'Kid' },
     { id: 2, type: 'Men' },
@@ -28,6 +29,24 @@ export const ListProducts = () => {
   const handleDeleteProduct = (productID: string) => {
     dispatch(removeProduct(productID))
   }
+
+  const getTypeProduct = (typeId: any) => {
+    const name = listTypeProducts.find((item) => item.id === parseInt(typeId))
+    return name?.type
+  }
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axiosInstance.get<Product[]>('/product/getAllProducts')
+        const listProducts = response.data
+        dispatch(addProduct(listProducts))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchProducts()
+  }, [])
 
   return (
     <div className='admin-list-products__contain w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
@@ -57,7 +76,7 @@ export const ListProducts = () => {
           <p className='hover:underline cursor-pointer' onClick={() => ele.id && clickToDetailProduct(ele.id)}>
             {ele.name}
           </p>
-          <p>{ele.category}</p>
+          <p>{getTypeProduct(ele.category || 0)}</p>
           <button className=' w-8 h-6 lg:w-16 lg:h-12 border-[#ebebeb] border-[2px]'>{ele.new_price}</button>
           <button className=' w-8 h-6 lg:w-16 lg:h-12 border-[#ebebeb] border-[2px]'>{ele.old_price}</button>
           <img

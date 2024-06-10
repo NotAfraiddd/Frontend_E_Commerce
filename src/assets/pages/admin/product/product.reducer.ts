@@ -11,7 +11,7 @@ const initalState: ProductState = {
   editProduct: null
 }
 
-export const addProduct = createAction<Product>('product/addProduct')
+export const addProduct = createAction<Product[]>('product/addProduct')
 export const removeProduct = createAction<string>('product/removeProduct')
 export const udpateProduct = createAction<string>('product/udpateProduct')
 
@@ -19,7 +19,7 @@ const productReducer = createReducer(initalState, (builder) => {
   builder
     .addCase(addProduct, (state, action) => {
       const product = action.payload
-      state.productList.push(product)
+      state.productList = [...state.productList, ...product]
     })
     .addCase(removeProduct, (state, action) => {
       const productId = action.payload

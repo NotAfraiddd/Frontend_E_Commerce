@@ -8,13 +8,13 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <ShopContextProvider>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ShopContextProvider>
-  </React.StrictMode>
+  // <React.StrictMode> // turn off render 2
+  <ShopContextProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ShopContextProvider>
+  // </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
