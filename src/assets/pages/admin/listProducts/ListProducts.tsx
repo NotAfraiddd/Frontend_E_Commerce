@@ -50,24 +50,26 @@ export const ListProducts = () => {
   }, [])
 
   return (
-    <div className='admin-list-products__contain w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
-      <p className='mb-2'>Category type</p>
-      <select name='' id='' className='border rounded-md h-12 px-5 mb-5' onChange={getValueProductTpe}>
-        {listTypeProducts.map((product) => (
-          <option key={product.id} value={product.type}>
-            {product.type}
-          </option>
-        ))}
-      </select>
-      <div className='admin-list-products__title justify-items-center grid grid-cols-custom-6 overflow-x-auto text-base font-semibold gap-3 xl:gap-[75px] py-5 text-#[454545] items-center '>
-        <p>Product</p>
-        <p>Title</p>
-        <p>Category</p>
-        <p>New Price</p>
-        <p>Old Price</p>
-        <p>Remove</p>
+    <div className='admin-list-products__contain overflow-auto w-full mt-8 mx-8 rounded-[20px] bg-white pb-8 px-10'>
+      <div className='sticky top-0 bg-white z-[1px] pt-8'>
+        <p className='mb-2'>Category type</p>
+        <select name='' id='' className='border rounded-md h-12 px-5 mb-5' onChange={getValueProductTpe}>
+          {listTypeProducts.map((product) => (
+            <option key={product.id} value={product.type}>
+              {product.type}
+            </option>
+          ))}
+        </select>
+        <div className='admin-list-products__title justify-items-center grid grid-cols-custom-6 overflow-x-auto text-base font-semibold gap-3 xl:gap-[75px] py-5 text-#[454545] items-center '>
+          <p>Product</p>
+          <p>Title</p>
+          <p>Category</p>
+          <p>New Price</p>
+          <p>Old Price</p>
+          <p>Remove</p>
+        </div>
+        <hr className='h-1 bg-[#e2e2e2] border-0' />
       </div>
-      <hr className='h-1 bg-[#e2e2e2] border-0' />
       {productList.map((ele, index) => (
         <div
           className='admin-list-products justify-items-center text-sm lg:text-base xl:text-lg grid grid-cols-custom-6 gap-3 xl:gap-[75px] py-5 text-#[454545] items-center'
