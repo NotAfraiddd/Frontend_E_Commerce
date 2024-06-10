@@ -5,6 +5,7 @@ import { Product, defaultProduct } from '@interface/Product'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from './product.reducer'
 import { RootState } from 'store'
+import { useParams } from 'react-router-dom'
 export const AddProducts = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
   const [rotation, setRotation] = useState(0)
@@ -13,7 +14,23 @@ export const AddProducts = () => {
 
   const dispatch = useDispatch()
   const productStore = useSelector((state: RootState) => state.product.editProduct)
+  const { productId } = useParams<{ productId: string }>()
 
+  const listTypeProducts = [
+    { id: 1, type: 'Kid' },
+    { id: 2, type: 'Men' },
+    { id: 3, type: 'Women' }
+  ]
+
+  // check param to set value default
+  useEffect(() => {
+    if (!productId) {
+      setDetailProducts(defaultProduct)
+      setImagePreview(null)
+    }
+  }, [productId])
+
+  // check data in store to set value default
   useEffect(() => {
     setDetailProducts(productStore || defaultProduct)
     if (productStore && productStore.image) {
@@ -23,6 +40,10 @@ export const AddProducts = () => {
     }
   }, [productStore])
 
+  /**
+   * on change value image
+   * @param e
+   */
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0]
@@ -36,6 +57,10 @@ export const AddProducts = () => {
     }
   }
 
+  /**
+   * on change value name product
+   * @param e
+   */
   const getValueNameProduct = (e: ChangeEvent<HTMLInputElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
@@ -43,6 +68,10 @@ export const AddProducts = () => {
     }))
   }
 
+  /**
+   * on change value new price
+   * @param e
+   */
   const getValueNewPrice = (e: ChangeEvent<HTMLInputElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
@@ -50,6 +79,10 @@ export const AddProducts = () => {
     }))
   }
 
+  /**
+   * on change value name product
+   * @param e
+   */
   const getValueProductTpe = (e: ChangeEvent<HTMLSelectElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
@@ -57,6 +90,10 @@ export const AddProducts = () => {
     }))
   }
 
+  /**
+   * on change value old price
+   * @param e
+   */
   const getValueOldPrice = (e: ChangeEvent<HTMLInputElement>) => {
     setDetailProducts((prevState) => ({
       ...prevState,
@@ -64,6 +101,10 @@ export const AddProducts = () => {
     }))
   }
 
+  /**
+   * on change value toggle rotate to set image default value
+   * @param e
+   */
   const toggleRotate = (e: MouseEvent<HTMLImageElement>) => {
     const newRotation = rotation - 360
     setRotation(newRotation)
@@ -72,12 +113,10 @@ export const AddProducts = () => {
     setImagePreview(null)
   }
 
-  const listTypeProducts = [
-    { id: 1, type: 'Kid' },
-    { id: 2, type: 'Men' },
-    { id: 3, type: 'Women' }
-  ]
-
+  /**
+   * submit form
+   * @param event
+   */
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formDataWithID = { ...detailProduct, id: new Date().toString() }

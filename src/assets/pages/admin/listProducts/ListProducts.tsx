@@ -21,11 +21,19 @@ export const ListProducts = () => {
     console.log(e.target.value)
   }
 
+  /**
+   * click to go product detail
+   * @param productID
+   */
   const clickToDetailProduct = (productId: string) => {
     dispatch(udpateProduct(productId))
     navigate(`/admin/product/${productId}`)
   }
 
+  /**
+   * delete product in store
+   * @param productID
+   */
   const handleDeleteProduct = (productID: string) => {
     dispatch(removeProduct(productID))
   }
@@ -35,19 +43,23 @@ export const ListProducts = () => {
     return name?.type
   }
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        dispatch(resetProductList())
-        const response = await axiosInstance.get<Product[]>('/product/getAllProducts')
-        const listProducts = response.data
-        dispatch(addProduct(listProducts))
-      } catch (err) {
-        console.log(err)
-      }
+  /**
+   * get all list products
+   */
+  const fetchProducts = async () => {
+    try {
+      dispatch(resetProductList())
+      const response = await axiosInstance.get<Product[]>('/product/getAllProducts')
+      const listProducts = response.data
+      dispatch(addProduct(listProducts))
+    } catch (err) {
+      console.log(err)
     }
+  }
+
+  useEffect(() => {
     fetchProducts()
-  }, [dispatch])
+  }, [])
 
   return (
     <div className='admin-list-products__contain w-full mt-8 mx-8 rounded-[20px] bg-white py-8 px-10'>
@@ -67,8 +79,8 @@ export const ListProducts = () => {
         <p>Old Price</p>
         <p>Remove</p>
       </div>
-      <hr className='h-1 bg-[#e2e2e2] border-0' />
       <div className='overflow-auto product-list'>
+        <hr className='h-1 bg-[#e2e2e2] border-0' />
         {productList.map((ele, index) => (
           <div
             className='admin-list-products justify-items-center text-sm lg:text-base xl:text-lg grid grid-cols-custom-6 gap-3 xl:gap-[75px] py-5 text-#[454545] items-center'
