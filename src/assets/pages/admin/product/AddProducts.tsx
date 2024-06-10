@@ -1,9 +1,10 @@
-import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from 'react'
 import './AddProducts.css'
 import { upload_area, reload } from '@images/index'
-import { Product, defaultProduct, intialProductList } from '@interface/Product'
-import { useDispatch } from 'react-redux'
+import { Product, defaultProduct } from '@interface/Product'
+import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from './product.reducer'
+import { RootState } from 'store'
 export const AddProducts = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
   const [rotation, setRotation] = useState(0)
@@ -11,6 +12,16 @@ export const AddProducts = () => {
   const [detailProduct, setDetailProducts] = useState<Product>(defaultProduct)
 
   const dispatch = useDispatch()
+  const productStore = useSelector((state: RootState) => state.product.editProduct)
+
+  useEffect(() => {
+    setDetailProducts(productStore || defaultProduct)
+    if (productStore && productStore.image) {
+      setImagePreview(productStore.image)
+    } else {
+      setImagePreview(null)
+    }
+  }, [productStore])
 
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {

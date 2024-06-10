@@ -3,7 +3,7 @@ import { ChangeEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from 'store'
-import { removeProduct } from '../product/product.reducer'
+import { removeProduct, udpateProduct } from '../product/product.reducer'
 import './ListProduct.css'
 export const ListProducts = () => {
   const productList = useSelector((state: RootState) => state.product.productList)
@@ -21,6 +21,7 @@ export const ListProducts = () => {
   }
 
   const clickToDetailProduct = (productId: string) => {
+    dispatch(udpateProduct(productId))
     navigate(`/admin/product/${productId}`)
   }
 
