@@ -14,7 +14,7 @@ export default {
   },
   getAuth(): { authorization: string } {
     return {
-      authorization: 'Bearer ' + this.get('access_token')
+      authorization: 'Bearer ' + this.get('accessToken')
     }
   }
 }
