@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from 'store'
 import { addProduct, removeProduct, resetProductList, udpateProduct } from '../product/product.reducer'
 import './ListProduct.css'
-import { Product } from '@interface/Product'
-import axiosInstance from '@config/axios'
+import { getAllProducts } from '@apis/admin'
+
 export const ListProducts = () => {
   const productList = useSelector((state: RootState) => state.product.productList)
   const navigate = useNavigate()
@@ -49,9 +49,8 @@ export const ListProducts = () => {
   const fetchProducts = async () => {
     try {
       dispatch(resetProductList())
-      const response = await axiosInstance.get<Product[]>('/product/getAllProducts')
-      const listProducts = response.data
-      dispatch(addProduct(listProducts))
+      const data = await getAllProducts()
+      dispatch(addProduct(data))
     } catch (err) {
       console.log(err)
     }

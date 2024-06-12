@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from './product.reducer'
 import { RootState } from 'store'
 import { useParams } from 'react-router-dom'
+import { updateProduct } from '@apis/admin'
 export const AddProducts = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [imageApi, setImageApi] = useState<File | null>(null)
   const [rotation, setRotation] = useState(0)
 
   const [detailProduct, setDetailProducts] = useState<Product>(defaultProduct)
@@ -21,18 +23,40 @@ export const AddProducts = () => {
     { id: 2, type: 'Men' },
     { id: 3, type: 'Women' }
   ]
+  const handleUpdateProduct = async () => {
+    const product = {
+      name: detailProduct.name,
+      category: detailProduct.category,
+      image: detailProduct.image,
+      new_price: detailProduct.new_price,
+      old_price: detailProduct.old_price
+    }
+    const data = await updateProduct(Number(productId), JSON.stringify(product))
+  }
+  const handleCreateProduct = async () => {
+    const product = {
+      name: detailProduct.image,
+      category: detailProduct.category,
+      image: detailProduct.image,
+      new_price: detailProduct.new_price,
+      old_price: detailProduct.old_price
+    }
+
+    // const data = await updateProduct(Number(productId), detailProduct)
+    // console.log(data)
+  }
 
   // check param to set value default
   useEffect(() => {
-    if (!productId) {
+    if (productId === undefined) {
       setDetailProducts(defaultProduct)
       setImagePreview(null)
     }
-  }, [productId])
+  }, [detailProduct, productId])
 
   // check data in store to set value default
   useEffect(() => {
-    setDetailProducts(productStore || defaultProduct)
+    if (productStore) setDetailProducts(productStore)
     if (productStore && productStore.image) {
       setImagePreview(productStore.image)
     } else {
@@ -47,6 +71,7 @@ export const AddProducts = () => {
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0]
+      setImageApi(file)
       const objectUrl = URL.createObjectURL(file)
       setImagePreview(objectUrl)
 
@@ -73,9 +98,11 @@ export const AddProducts = () => {
    * @param e
    */
   const getValueNewPrice = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
+    const newPrice = inputValue === '' ? 0 : parseInt(inputValue)
     setDetailProducts((prevState) => ({
       ...prevState,
-      new_price: parseInt(e.target.value)
+      new_price: newPrice
     }))
   }
 
@@ -95,9 +122,11 @@ export const AddProducts = () => {
    * @param e
    */
   const getValueOldPrice = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
+    const newPrice = inputValue === '' ? 0 : parseInt(inputValue)
     setDetailProducts((prevState) => ({
       ...prevState,
-      old_price: parseInt(e.target.value)
+      old_price: newPrice
     }))
   }
 
@@ -111,6 +140,7 @@ export const AddProducts = () => {
     const imageElement = e.currentTarget
     imageElement.style.transform = `rotate(${newRotation}deg)`
     setImagePreview(null)
+    setImageApi(null)
   }
 
   /**
@@ -123,6 +153,7 @@ export const AddProducts = () => {
     dispatch(addProduct([formDataWithID]))
     setDetailProducts(defaultProduct)
     setImagePreview(null)
+    setImageApi(null)
   }
   return (
     <form onSubmit={handleSubmit} className='w-full'>
@@ -133,7 +164,7 @@ export const AddProducts = () => {
             type='text'
             placeholder=''
             spellCheck={false}
-            value={detailProduct.name}
+            value={detailProduct.image}
             onChange={getValueNameProduct}
             className='pl-5 border w-full h-12 rounded-xl'
           />
@@ -187,7 +218,15 @@ export const AddProducts = () => {
           <input onChange={handleImage} type='file' name='image' id='file-img' hidden accept='image/*' />
         </div>
         <div className='flex mt-5 w-40 gap-5 items-center'>
-          <button className='border h-10 w-full rounded-md'>ADD</button>
+          {productId ? (
+            <button className='border h-10 w-full rounded-md' onClick={handleUpdateProduct}>
+              UPDATE
+            </button>
+          ) : (
+            <button className='border h-10 w-full rounded-md' onClick={handleCreateProduct}>
+              ADD
+            </button>
+          )}
           <img src={reload} alt='' className='h-6' onClick={toggleRotate} style={{ transition: 'transform 0.9s' }} />
         </div>
       </div>

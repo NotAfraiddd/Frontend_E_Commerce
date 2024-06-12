@@ -29,7 +29,7 @@ axiosInstance.interceptors.request.use(
 /**
  * Call api reset token.
  */
-const refreshToken = async (config: AxiosRequestConfig<any>, token: string) => {
+const refreshTokenAPI = async (config: AxiosRequestConfig<any>, token: string) => {
   try {
     const res = await axios.post(
       `${baseURL}/${refreshAPI}`,
@@ -96,7 +96,7 @@ axiosInstance.interceptors.response.use(
     if (status === 401 && config.url !== '/login') {
       const token = localToken.get('refreshToken')
       if (token) {
-        return refreshToken(config, token)
+        return refreshTokenAPI(config, token)
       } else {
         window.location.href = '/login'
         return Promise.reject(error)

@@ -1,5 +1,3 @@
-import { product_1, product_10, product_14 } from '@images/index'
-
 export interface Product {
   id?: string
   name?: string
@@ -18,29 +16,4 @@ export const defaultProduct: Product = {
   old_price: 0
 }
 
-export const intialProductList: Product[] = [
-  {
-    id: '1',
-    name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-    image: product_1,
-    category: 1,
-    new_price: 85,
-    old_price: 120
-  },
-  {
-    id: '2',
-    name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-    image: product_14,
-    category: 1,
-    new_price: 85,
-    old_price: 120
-  },
-  {
-    id: '3',
-    name: 'Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket',
-    image: product_10,
-    category: 1,
-    new_price: 85,
-    old_price: 120
-  }
-]
+export const intialProductList: Product[] = []
