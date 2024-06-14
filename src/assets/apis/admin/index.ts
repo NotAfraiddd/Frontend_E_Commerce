@@ -15,3 +15,9 @@ export const updateProduct = async (productId: number, updatedFields: string): P
   const response = await axiosInstance.post<Product>(`/product/${productId}/update`, updatedFields)
   return response.data
 }
+
+// user
+export const login = async () => {
+  const response = await axiosInstance.get('/auth/login')
+  return response.data
+}

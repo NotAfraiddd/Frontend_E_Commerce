@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 export default function Login() {
+  const [isLogin, setIsLogin] = useState(false)
+  const handleGoToLogin = () => {
+    setIsLogin((prev) => !prev)
+  }
   return (
     <div className='login w-full py-28 bg-[#fce3fe]'>
       <div className='login-container bg-white px-10 py-5 w-96 sm:w-[550px] sm:h-fit mx-auto'>
-        <h1 className='my-5 font-semibold text-2xl text-center text-[#ff4141]'>Sign Up</h1>
+        <h1 className='my-5 font-semibold text-2xl text-center text-[#ff4141]'> {!isLogin ? 'Login' : 'Sign Up'} </h1>
         <div className='login-fields flex flex-col gap-7 mt-7'>
-          <input
-            type='text'
-            placeholder='Your name'
-            className='border rounded-xl h-[72px] w-full pl-5 border-[#c9c9c9] text-lg text-[#5c5c5c] focus-visible:outline-none'
-          />
+          {isLogin && (
+            <input
+              type='text'
+              placeholder='Your name'
+              className='border rounded-xl h-[72px] w-full pl-5 border-[#c9c9c9] text-lg text-[#5c5c5c] focus-visible:outline-none'
+            />
+          )}
           <input
             type='email'
             placeholder='Your email'
@@ -27,7 +33,10 @@ export default function Login() {
         </button>
         <div className='login-text mt-5 text-lg font-medium text-[#5c5c5c]'>
           <span>
-            Already have an accounts? <span className='text-[#ff4141]'>Login here</span>
+            Already have an accounts?{' '}
+            <span className='text-[#ff4141] cursor-pointer' onClick={handleGoToLogin}>
+              {isLogin ? 'Login here' : 'Signup here'}
+            </span>
           </span>
         </div>
         <div className='login-agree flex mt-5 gap-3 text-[#5c5c5c] text-lg font-medium'>
